@@ -1,5 +1,5 @@
 iden var,varNew;
-number five=22,loc=34;
+numb five=22,loc=34;
 begin;
 end;
 while;

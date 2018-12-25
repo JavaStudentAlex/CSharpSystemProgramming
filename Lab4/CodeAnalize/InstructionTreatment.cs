@@ -40,7 +40,7 @@ namespace Lab4
                     case "iden" : currentLexemType = LexemsType.Iden; break;
                     case "numb" : currentLexemType = LexemsType.Number; break;
                     default:
-                        if (currentWord.Length>1)
+                        if (IsWord(currentWord))
                         {
                             currentLexemType = LexemsType.SimpleWord;
                             break;

@@ -1,8 +1,7 @@
 Identificators : var varNew 
-Constants : 
-SimpleWord : number five 22 loc 34 
-SyntaxLexem : = , = ; ; ; ; 
+Constants : five=22loc=34
 Begin : begin 
+SyntaxLexem : ; ; ; 
 End : end 
 While : while 
 

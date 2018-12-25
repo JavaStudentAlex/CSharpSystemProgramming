@@ -78,17 +78,17 @@ namespace Lab4
             while (true)
             {
                 SetNextLexem();
-                if (!currentLexemType.Equals(currentLexemType == LexemsType.SimpleWord) ||
+                if (!currentLexemType.Equals(LexemsType.SimpleWord) ||
                     char.IsDigit(currentWord[0]))
-                    throw new ExpectedStatementException();
+                {throw new ExpectedStatementException();}
                 string varname = currentWord;
                 SetNextLexem();
                 if(!currentWord.Equals("=")) throw new ExpectedStatementException();
 
                 int constantVal;
                 SetNextLexem();
-                if (!currentLexemType.Equals(LexemsType.SimpleWord) || Int32.TryParse(currentWord, out constantVal))
-                    throw new ExpectedStatementException();
+                if (!currentLexemType.Equals(LexemsType.SimpleWord) || !Int32.TryParse(currentWord, out constantVal))
+                {throw new ExpectedStatementException();}
                 numberConstants.Add(varname,constantVal);
                 
                 SetNextLexem();

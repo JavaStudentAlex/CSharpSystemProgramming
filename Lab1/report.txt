@@ -1,0 +1,122 @@
+Виконати наступні дії над символьними ланцюжками: x3 , xR , xy, |x|, 
+де  x – Ваше ім’я; y – перші три літери прізвища.
+using System.Net;
+using System.Text;
+
+namespace Lab1
+{
+  internal class Program
+  {
+    public static void Main(string[] args)
+    {
+      string pathToResourceFile = "..\\..\\resources\\resource.db";
+      string pathToResultFile = "..\\..\\result.db";
+
+      try
+      {
+        StreamReader fileReader = new StreamReader(pathToResourceFile);
+        StreamWriter fileWriter = new StreamWriter(pathToResultFile);
+
+        string name = fileReader.ReadLine(),
+          lastName = fileReader.ReadLine(),
+          tripledString = StringStuffing(name),
+          reversedString = ReverseString(name),
+          concatedString = name + lastName;
+        int stringLength = name.Length;
+        StringBuilder builder = new StringBuilder("name : ").Append(name).Append("\nsrename : ").Append(lastName)
+          .Append("\ntripled : ").Append(tripledString).Append("\nreversed : ").Append(reversedString)
+          .Append("\nconcated : ").Append(concatedString).Append("\nlength : ").Append(stringLength);
+        fileWriter.WriteLine(builder.ToString());
+        fileReader.Close();
+        fileWriter.Close();
+      }
+      catch (FileNotFoundException e)
+      {
+        Console.WriteLine(e);
+        throw;
+      }    
+    }
+
+    private static string ReverseString(string res)
+    {
+      char[] resCharArray = res.ToCharArray();
+      Array.Reverse(resCharArray);
+      return new string(resCharArray);
+    }
+
+    private static string StringStuffing(string res, int times = 1)
+    {
+      StringBuilder builder = new StringBuilder(res);
+
+      for (int i = 1; i < times; ++i)
+      {
+        builder.Append(res);
+      }
+
+      return builder.ToString();
+    }
+  }
+}
+
+Завдання №2
+Привести формальну мову L(G), яка описана наступною граматикою G=(T, N, P, S):
+Алфавіт термінальних символів:
+T= {торт, цукерки, сережки, каблучка}
+Алфавіт нетермінальних символів:
+N= {ПОДАРУНОК , СОЛОДОЩІ , ПРИКРАСА}
+Правила виведення:
+P= {ПОДАРУНОК - > ПРИКРАСА, ПОДАРУНОК- > СОЛОДОЩІ, СОЛОДОЩІ- >  ТОРТ,  СОЛОДОЩІ- > ЦУКЕРКИ,  ПРИКРАСА- > СЕРЕЖКИ, ПРИКРАСА- > КАБЛУЧКА}.
+
+
+L(G) = { торт, цукерки,  сережки, каблучка}
+
+Завдання №3
+
+Пояснити що означає наступна розширена граматика, у якої алфавіти  T  і  N взяті із попереднього завдання:
+а) ПОДАРУНОК - > ПРИКРАСА + СОЛОДОЩІ *
+
+ПОДАРУНОК це 1 і більше ПРИКРАС та 0 або більше СОЛОДОЩІВ
+
+ПРИКРАСА - > сережки | каблучка
+
+ПРИКРАСА це сережка або каблучка
+
+СОЛОДОЩІ  - > торт  +  цукерки *
+
+СОЛОДОЩІ  це 1 і більше торт та 0 і більше цукерок 
+
+б) ПОДАРУНОК - > ПРИКРАСА | СОЛОДОЩІ +
+
+ПОДАРУНОК це ПРИКРАСА або 0 і більше СОЛОДОЩІВ
+
+ПРИКРАСА - > сережки  каблучка
+
+ПРИКРАСА це сережки та каблучка
+
+СОЛОДОЩІ  - > торт    цукерки 
+
+СОЛОДОЩІ  це торт та цукерки 
+
+в) ПОДАРУНОК - > ПРИКРАСА  СОЛОДОЩІ *
+
+ПОДАРУНОК це ПРИКРАСА та 0 і більше СОЛОДОЩІВ
+
+ПРИКРАСА - > сережки  каблучка+
+
+ПРИКРАСА це сережки та 1 і більше каблучок
+
+СОЛОДОЩІ  - > торт  |  цукерки *
+
+СОЛОДОЩІ  це торт  або  0 і більше цукерок
+
+
+Завдання №4
+Привести розширену граматику для описання змінних цілого типу int і числових констант const. Граматика повинна передбачати  описання  як однієї змінної або константи, так і кількох із них через кому. В кінці кожного описання повинна бути крапка із комою.
+Алфавітами задатися самостійно.
+Алфавіт термінальних символів:
+T= { a,b,c, … , z, int, const}
+Алфавіт нетермінальних символів:
+N= {DCONST, DINT, type }
+Правила виведення:
+P= { iden -> a* | b* | c* … | z*,  type-> int | const ,  DVAR ->type iden (`,` iden )* `;` }.
+

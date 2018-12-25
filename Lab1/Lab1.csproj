@@ -42,6 +42,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="report.txt" />
     <Content Include="resources\resource.db" />
     <Content Include="result.db" />
   </ItemGroup>

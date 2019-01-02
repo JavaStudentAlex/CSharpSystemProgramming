@@ -1,4 +1,7 @@
-﻿namespace Lab8
+﻿using System;
+using System.IO;
+
+namespace Lab8
 {
     enum words {BEGINL = 257, ENDL, IFL, THENL, WHILEL, DOL, RETRL, READL, PRITL, INTL, CONSTL, IDEN, NUMB};
     struct odc {

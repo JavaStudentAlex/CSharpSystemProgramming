@@ -1,4 +1,7 @@
-﻿namespace Lab11
+﻿using System;
+using System.IO;
+
+namespace Lab11
 {
         enum words {BEGINL = 257, ENDL, IFL, THENL, WHILEL, DOL, RETRL, READL, PRITL, INTL, CONSTL, IDEN, NUMB};
         enum commands { OPR, LIT, LDE, LDI, STE, STI, CAL, INI, JMP, JMC };

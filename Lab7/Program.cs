@@ -1,4 +1,7 @@
-﻿namespace Lab7
+﻿using System;
+using System.IO;
+
+namespace Lab7
 {
     enum words {BEGINL = 257, ENDL, IFL, THENL, WHILEL, DOL, RETRL, READL, PRITL, INTL, CONSTL, IDEN, NUMB};
     struct odc {

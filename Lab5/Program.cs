@@ -1,5 +1,9 @@
-﻿namespace Lab5
+﻿using System;
+using System.IO;
+
+namespace Lab5
 {
+    enum words {BEGINL = 257, ENDL, IFL, THENL, WHILEL, DOL, RETRL, READL, PRITL, INTL, CONSTL, IDEN, NUMB};
     class Program
     {
         StreamReader sr;
